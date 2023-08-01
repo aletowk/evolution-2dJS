@@ -58,3 +58,16 @@ npm run dev
 ```
 ```
 
+### Build & Deploy using NGINX
+
+#### Build
+
+```
+npm run build
+```
+
+#### Deploy
+```
+docker run -it --rm -p 8080:80 --name web -v ${PWD}\evolution-2djs\dist:/usr/share/nginx/html nginx
+```
+> If wanted to run as a Deamon, add `-d` after the `-it` option for example
