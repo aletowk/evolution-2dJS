@@ -1,4 +1,4 @@
-
+# Evolution 2DJS 
 
 ## Use Vite & React
 
@@ -71,3 +71,13 @@ npm run build
 docker run -it --rm -p 8080:80 --name web -v ${PWD}\evolution-2djs\dist:/usr/share/nginx/html nginx
 ```
 > If wanted to run as a Deamon, add `-d` after the `-it` option for example
+
+
+## React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
