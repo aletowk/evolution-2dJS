@@ -1,8 +1,25 @@
 import Building from "./components/Building"
 
+import { useState } from 'react';
+
+const building_list = []
+let cnt = 0
+
 function BuildingList(){
-    const building_list = ["Tavern","Town Hall"]
-    return building_list.map((building) => <Building name={building}/>)
+    const [buildings,setBuildings] = useState(building_list)
+
+    function addBuilding()
+    {
+        setBuildings([cnt,...buildings])
+        cnt++
+    }
+        
+    return (
+        <>
+            <button onClick={addBuilding}>Add one</button>
+            {buildings.map((building) => <Building name={building}/>)}
+        </>
+    )
 }
 
 function App() {
