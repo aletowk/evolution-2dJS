@@ -1,10 +1,12 @@
+import { Button } from "@mui/material"
+
 function Building({name}){
     return (
         <>
             <div>
-                <button>
+                <Button>
                     My Building : {name}
-                </button>
+                </Button>
             </div>
         </>
     )

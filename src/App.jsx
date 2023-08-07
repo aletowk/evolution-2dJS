@@ -1,36 +1,49 @@
-import Building from "./components/Building"
-
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import { useState } from 'react';
+import { FormGroup, FormControlLabel } from '@mui/material';
 
-const building_list = []
-let cnt = 0
-
-function BuildingList(){
-    const [buildings,setBuildings] = useState(building_list)
-
-    function addBuilding()
-    {
-        setBuildings([cnt,...buildings])
-        cnt++
-    }
-        
-    return (
-        <>
-            <button onClick={addBuilding}>Add one</button>
-            {buildings.map((building) => <Building name={building}/>)}
-        </>
-    )
-}
+import { Button, Switch } from '@mui/base';
+import BuildingList from './components/BuildingList';
 
 function App() {
-  return (
-    <>
-        <div>
-            <BuildingList />
-            <Building name="toto"></Building>
-        </div>
-    </>
-  )
+    const [light,setLight] = useState(true)
+    const darkTheme = createTheme({
+        palette: {
+            mode: 'dark',
+        },
+    });
+    const lightTheme = createTheme({
+        palette:{
+            mode: 'light'
+        }
+    })
+
+    return (
+        <>
+            <ThemeProvider theme={light ? lightTheme : darkTheme}>
+                <CssBaseline />
+                <div>
+                <FormGroup>
+                    <FormControlLabel control={
+                        <Switch 
+                            checked={light}
+                            onChange={
+                                function(e){
+                                    setLight(e.currentTarget.checked)
+                                }
+                            }
+                            inputprops={{ 'aria-label': 'controlled' }}
+                        />
+                    } label="Light Mode" />
+                </FormGroup>
+                </div>
+                <div>
+                    <BuildingList />
+                </div>
+            </ThemeProvider>
+        </>
+    )
 }
 
 export default App

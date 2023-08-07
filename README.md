@@ -1,5 +1,10 @@
 # Evolution 2DJS 
 
+## MUI
+```bash
+npm install @mui/material @emotion/react @emotion/styled
+```
+
 ## Use Vite & React
 
 ### Using Docker (after install)
